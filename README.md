@@ -10,3 +10,7 @@ chmod +x ReconDork.sh
 ./ReconDork.sh example.com        # search the domain (site:example.com)
 ./ReconDork.sh -w example.com     # wildcard: search the subdomains (site:*.example.com)
 ```
+## Workflow
+
+![ReconDork workflow](docs/screenshot-1.png)
+![ReconDork workflow](docs/screenshot-2.png)
