@@ -162,23 +162,34 @@ site:@SITE@ inurl:wp-config.php
 site:@SITE@ inurl:phpinfo.php
 site:@SITE@ (inurl:wp-content OR inurl:wp-includes OR inurl:wp-admin OR inurl:wp-json)
 # Top params — XSS
-site:@SITE@ (inurl:q= OR inurl:s= OR inurl:search= OR inurl:id= OR inurl:lang= OR inurl:keyword= OR inurl:query= OR inurl:page= OR inurl:keywords= OR inurl:year= OR inurl:view= OR inurl:email= OR inurl:type=)
-site:@SITE@ (inurl:name= OR inurl:p= OR inurl:month= OR inurl:image= OR inurl:list_type= OR inurl:url= OR inurl:terms= OR inurl:categoryid= OR inurl:key= OR inurl:l= OR inurl:begindate= OR inurl:enddate=)
+site:@SITE@ (inurl:q= OR inurl:s= OR inurl:search= OR inurl:query= OR inurl:keyword= OR inurl:keywords= OR inurl:searchterm= OR inurl:id= OR inurl:page= OR inurl:view= OR inurl:type= OR inurl:name=)
+site:@SITE@ (inurl:title= OR inurl:subject= OR inurl:message= OR inurl:comment= OR inurl:content= OR inurl:body= OR inurl:text= OR inurl:value= OR inurl:input= OR inurl:field= OR inurl:data= OR inurl:email=)
+site:@SITE@ (inurl:url= OR inurl:redirect= OR inurl:return= OR inurl:callback= OR inurl:jsonp= OR inurl:lang= OR inurl:year= OR inurl:month= OR inurl:image= OR inurl:terms= OR inurl:key= OR inurl:tag=)
+site:@SITE@ (inurl:label= OR inurl:description= OR inurl:filter= OR inurl:sort= OR inurl:order= OR inurl:display= OR inurl:output= OR inurl:ref= OR inurl:category= OR inurl:categoryid= OR inurl:begindate= OR inurl:enddate=)
 # Top params — SQL Injection
-site:@SITE@ (inurl:id= OR inurl:page= OR inurl:report= OR inurl:dir= OR inurl:search= OR inurl:category= OR inurl:file= OR inurl:class= OR inurl:url= OR inurl:news= OR inurl:item= OR inurl:menu= OR inurl:lang=)
-site:@SITE@ (inurl:name= OR inurl:ref= OR inurl:title= OR inurl:view= OR inurl:topic= OR inurl:thread= OR inurl:type= OR inurl:date= OR inurl:form= OR inurl:main= OR inurl:nav= OR inurl:region=)
-# Top params — LFI
-site:@SITE@ (inurl:cat= OR inurl:dir= OR inurl:action= OR inurl:board= OR inurl:date= OR inurl:detail= OR inurl:file= OR inurl:download= OR inurl:path= OR inurl:folder= OR inurl:prefix= OR inurl:include= OR inurl:page=)
-site:@SITE@ (inurl:inc= OR inurl:locate= OR inurl:show= OR inurl:doc= OR inurl:site= OR inurl:type= OR inurl:view= OR inurl:content= OR inurl:document= OR inurl:layout= OR inurl:mod= OR inurl:conf=)
+site:@SITE@ (inurl:id= OR inurl:page= OR inurl:report= OR inurl:dir= OR inurl:search= OR inurl:category= OR inurl:categoryid= OR inurl:file= OR inurl:class= OR inurl:url= OR inurl:news= OR inurl:item=)
+site:@SITE@ (inurl:menu= OR inurl:lang= OR inurl:name= OR inurl:ref= OR inurl:title= OR inurl:view= OR inurl:topic= OR inurl:thread= OR inurl:type= OR inurl:date= OR inurl:form= OR inurl:main=)
+site:@SITE@ (inurl:nav= OR inurl:region= OR inurl:order= OR inurl:sort= OR inurl:filter= OR inurl:product= OR inurl:productid= OR inurl:pid= OR inurl:uid= OR inurl:user= OR inurl:userid= OR inurl:cat=)
+site:@SITE@ (inurl:catid= OR inurl:group= OR inurl:groupid= OR inurl:key= OR inurl:query= OR inurl:select= OR inurl:number= OR inurl:num= OR inurl:offset= OR inurl:limit= OR inurl:status= OR inurl:state=)
+# Top params — LFI / Path Traversal
+site:@SITE@ (inurl:file= OR inurl:filepath= OR inurl:file_path= OR inurl:filename= OR inurl:file_name= OR inurl:path= OR inurl:pathname= OR inurl:dir= OR inurl:directory= OR inurl:folder= OR inurl:root= OR inurl:rootpath=)
+site:@SITE@ (inurl:home= OR inurl:page= OR inurl:pg= OR inurl:include= OR inurl:inc= OR inurl:require= OR inurl:load= OR inurl:read= OR inurl:retrieve= OR inurl:fetch= OR inurl:locate= OR inurl:show=)
+site:@SITE@ (inurl:doc= OR inurl:document= OR inurl:pdf= OR inurl:img= OR inurl:image= OR inurl:photo= OR inurl:template= OR inurl:tpl= OR inurl:view= OR inurl:display= OR inurl:content= OR inurl:layout=)
+site:@SITE@ (inurl:data= OR inurl:resource= OR inurl:source= OR inurl:src= OR inurl:location= OR inurl:loc= OR inurl:download= OR inurl:attachment= OR inurl:item= OR inurl:style= OR inurl:log= OR inurl:target=)
+site:@SITE@ (inurl:cat= OR inurl:action= OR inurl:board= OR inurl:date= OR inurl:detail= OR inurl:prefix= OR inurl:mod= OR inurl:conf= OR inurl:site= OR inurl:type= OR inurl:name= OR inurl:ref=)
 # Top params — SSRF
-site:@SITE@ (inurl:dest= OR inurl:redirect= OR inurl:uri= OR inurl:path= OR inurl:continue= OR inurl:url= OR inurl:window= OR inurl:next= OR inurl:data= OR inurl:reference= OR inurl:site= OR inurl:html= OR inurl:val=)
-site:@SITE@ (inurl:validate= OR inurl:domain= OR inurl:callback= OR inurl:return= OR inurl:page= OR inurl:feed= OR inurl:host= OR inurl:port= OR inurl:to= OR inurl:out= OR inurl:view= OR inurl:dir=)
+site:@SITE@ (inurl:url= OR inurl:uri= OR inurl:dest= OR inurl:destination= OR inurl:redirect= OR inurl:redirect_uri= OR inurl:redirect_url= OR inurl:continue= OR inurl:return= OR inurl:next= OR inurl:data= OR inurl:reference=)
+site:@SITE@ (inurl:site= OR inurl:html= OR inurl:path= OR inurl:domain= OR inurl:callback= OR inurl:feed= OR inurl:host= OR inurl:port= OR inurl:to= OR inurl:out= OR inurl:window= OR inurl:val=)
+site:@SITE@ (inurl:validate= OR inurl:remote= OR inurl:fetch= OR inurl:proxy= OR inurl:api= OR inurl:endpoint= OR inurl:server= OR inurl:target= OR inurl:forward= OR inurl:go= OR inurl:u= OR inurl:link=)
+site:@SITE@ (inurl:link_url= OR inurl:image_url= OR inurl:resource= OR inurl:load= OR inurl:image= OR inurl:img= OR inurl:src= OR inurl:source= OR inurl:open= OR inurl:get= OR inurl:view= OR inurl:dir=)
 # Top params — RCE
 site:@SITE@ (inurl:cmd= OR inurl:exec= OR inurl:command= OR inurl:execute= OR inurl:ping= OR inurl:query= OR inurl:jump= OR inurl:code= OR inurl:reg= OR inurl:do= OR inurl:func= OR inurl:arg=)
-site:@SITE@ (inurl:option= OR inurl:load= OR inurl:process= OR inurl:step= OR inurl:read= OR inurl:feature= OR inurl:exe= OR inurl:module= OR inurl:payload= OR inurl:run= OR inurl:print=)
+site:@SITE@ (inurl:option= OR inurl:load= OR inurl:process= OR inurl:step= OR inurl:read= OR inurl:feature= OR inurl:exe= OR inurl:module= OR inurl:payload= OR inurl:run= OR inurl:print= OR inurl:system=)
+site:@SITE@ (inurl:shell= OR inurl:call= OR inurl:function= OR inurl:action= OR inurl:method= OR inurl:cli= OR inurl:upload= OR inurl:eval= OR inurl:script= OR inurl:task= OR inurl:op= OR inurl:mode=)
 # Top params — Open Redirect
-site:@SITE@ (inurl:next= OR inurl:url= OR inurl:target= OR inurl:rurl= OR inurl:dest= OR inurl:destination= OR inurl:redir= OR inurl:redirect_uri= OR inurl:redirect_url= OR inurl:redirect= OR inurl:out=)
-site:@SITE@ (inurl:view= OR inurl:to= OR inurl:image_url= OR inurl:go= OR inurl:return= OR inurl:returnTo= OR inurl:return_to= OR inurl:checkout_url= OR inurl:continue= OR inurl:return_path=)
+site:@SITE@ (inurl:next= OR inurl:url= OR inurl:target= OR inurl:rurl= OR inurl:dest= OR inurl:destination= OR inurl:redir= OR inurl:redirect_uri= OR inurl:redirect_url= OR inurl:redirect= OR inurl:out= OR inurl:view=)
+site:@SITE@ (inurl:to= OR inurl:image_url= OR inurl:go= OR inurl:return= OR inurl:returnTo= OR inurl:return_to= OR inurl:checkout_url= OR inurl:continue= OR inurl:return_path= OR inurl:redirect_to= OR inurl:returnurl= OR inurl:return_url=)
+site:@SITE@ (inurl:forward= OR inurl:location= OR inurl:goto= OR inurl:link= OR inurl:callback= OR inurl:success= OR inurl:cancel= OR inurl:back= OR inurl:ref= OR inurl:referer= OR inurl:u= OR inurl:r=)
 #! Confidential & internal documents
 site:@SITE@ ("confidential" OR "not for distribution" OR "not for public release" OR "restricted" OR "proprietary" OR "do not distribute") filetype:pdf
 site:@SITE@ "for internal use only" (ext:pdf OR ext:doc OR ext:docx OR ext:xls OR ext:xlsx OR ext:ppt OR ext:pptx)
@@ -297,10 +308,9 @@ out="$OUTDIR/recondork_${domain}_${tag}_${ts}.html"
 txt="$OUTDIR/recondork_${domain}_${tag}_${ts}.txt"
 GB="https://www.google.com/search?q="
 dom_esc="$(htmlesc "$domain")"
-mode_esc="$(htmlesc "$MODE")"
 
 # ---------------------------------------------------------------------------
-# 6. Emit HTML (hacker terminal theme) + optional plain-text, de-duplicated
+# 6. Emit HTML + optional plain-text, de-duplicated
 # ---------------------------------------------------------------------------
 declare -A seen=()
 total=0; dupes=0
